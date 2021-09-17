@@ -5,6 +5,8 @@ import All from "./components/All";
 import "./css/main.css";
 import Completed from "./components/Completed";
 import Active from "./components/Active";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 export const TaskContext = createContext();
 
@@ -20,34 +22,35 @@ function App() {
 		settask({ ...task, id: (Math.random() * 100).toFixed(0) });
 		settasklist([...tasklist, task]);
 	};
-	console.log(task);
-	console.log(tasklist);
+
 	return (
 		<TaskContext.Provider value={{ settasklist, tasklist }}>
 			<Router>
-				<div className="App">
-					<Input
-						changeHandler={updateField}
-						value={task.name}
-						name="task.name"
-						clickHandler={createTask}
-					/>
-					<Switch>
-						<Route path="/" exact component={() => <All list={tasklist} />} />
-						<Route
-							path="/completed"
-							component={() => <Completed list={tasklist} />}
+				<DndProvider backend={HTML5Backend}>
+					<div className="App">
+						<Input
+							changeHandler={updateField}
+							value={task.name}
+							name="task.name"
+							clickHandler={createTask}
 						/>
-						<Route
-							path="/active"
-							component={() => <Active list={tasklist} />}
-						/>
-					</Switch>
+						<Switch>
+							<Route path="/" exact component={() => <All list={tasklist} />} />
+							<Route
+								path="/completed"
+								component={() => <Completed list={tasklist} />}
+							/>
+							<Route
+								path="/active"
+								component={() => <Active list={tasklist} />}
+							/>
+						</Switch>
 
-					<Link to="/completed">completed</Link>
-					<Link to="/">All</Link>
-					<Link to="/Active">Active</Link>
-				</div>
+						<Link to="/completed">completed</Link>
+						<Link to="/">All</Link>
+						<Link to="/Active">Active</Link>
+					</div>{" "}
+				</DndProvider>
 			</Router>
 		</TaskContext.Provider>
 	);

@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Nemanjavit/todo-app-private/static/css/main.083eb977.chunk.css",
+    "main.js": "/Nemanjavit/todo-app-private/static/js/main.d8ba6b4e.chunk.js",
+    "main.js.map": "/Nemanjavit/todo-app-private/static/js/main.d8ba6b4e.chunk.js.map",
+    "runtime-main.js": "/Nemanjavit/todo-app-private/static/js/runtime-main.ae8125b9.js",
+    "runtime-main.js.map": "/Nemanjavit/todo-app-private/static/js/runtime-main.ae8125b9.js.map",
+    "static/js/2.17cb51a4.chunk.js": "/Nemanjavit/todo-app-private/static/js/2.17cb51a4.chunk.js",
+    "static/js/2.17cb51a4.chunk.js.map": "/Nemanjavit/todo-app-private/static/js/2.17cb51a4.chunk.js.map",
+    "static/js/3.412eea07.chunk.js": "/Nemanjavit/todo-app-private/static/js/3.412eea07.chunk.js",
+    "static/js/3.412eea07.chunk.js.map": "/Nemanjavit/todo-app-private/static/js/3.412eea07.chunk.js.map",
+    "index.html": "/Nemanjavit/todo-app-private/index.html",
+    "static/css/main.083eb977.chunk.css.map": "/Nemanjavit/todo-app-private/static/css/main.083eb977.chunk.css.map",
+    "static/js/2.17cb51a4.chunk.js.LICENSE.txt": "/Nemanjavit/todo-app-private/static/js/2.17cb51a4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ae8125b9.js",
+    "static/js/2.17cb51a4.chunk.js",
+    "static/css/main.083eb977.chunk.css",
+    "static/js/main.d8ba6b4e.chunk.js"
+  ]
+}

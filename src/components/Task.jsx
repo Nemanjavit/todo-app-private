@@ -1,6 +1,8 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { ItemTypes } from "../Utils/itemTypes";
 import { useDrag, useDrop } from "react-dnd";
+import CrossIcon from "../svgs/CrossIcon";
+import { BiCheck } from "react-icons/bi";
 
 const Task = ({
 	doneHandler,
@@ -12,6 +14,7 @@ const Task = ({
 	id,
 }) => {
 	const ref = useRef(null);
+
 	const [{ handlerId }, drop] = useDrop({
 		accept: ItemTypes.CARD,
 		collect(monitor) {
@@ -55,10 +58,7 @@ const Task = ({
 				return;
 			}
 			moveTask(dragIndex, hoverIndex);
-			// Note: we're mutating the monitor item here!
-			// Generally it's better to avoid mutations,
-			// but it's good here for the sake of performance
-			// to avoid expensive index searches.
+
 			item.index = hoverIndex;
 		},
 	});
@@ -73,14 +73,25 @@ const Task = ({
 		}),
 	});
 	drag(drop(ref));
-	// console.log("isdragging", isDragging);
-	return (
-		<div style={{ height: "50px" }} ref={ref} data-handler-id={handlerId}>
-			<button onClick={doneHandler}>done</button>
-			{isFinished ? <strike>{name}</strike> : <span>{name}</span>}
 
-			<button onClick={deleteHandler}>X</button>
-		</div>
+	return (
+		<li className="taskList__item" ref={ref} data-handler-id={handlerId}>
+			<button
+				className={`done__button ${isFinished ? "done" : ""}`}
+				onClick={doneHandler}
+			>
+				{isFinished ? <BiCheck /> : null}
+			</button>
+			{isFinished ? (
+				<strike className="done__task">{name}</strike>
+			) : (
+				<span>{name}</span>
+			)}
+
+			<button className="delete__button" onClick={deleteHandler}>
+				<CrossIcon />
+			</button>
+		</li>
 	);
 };
 

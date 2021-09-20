@@ -1,7 +1,8 @@
-import React, { useCallback, useContext } from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 import { TaskContext } from "../App";
 import Task from "./Task";
 import update from "immutability-helper";
+import BottomNav from "./BottomNav";
 
 const Tasklist = ({ list }) => {
 	const { settasklist, tasklist } = useContext(TaskContext);
@@ -17,7 +18,8 @@ const Tasklist = ({ list }) => {
 		let newlist = tasklist;
 		let finishedTask = newlist.filter((task) => task.id === id);
 		finishedTask[0].isFinished = true;
-		settasklist(newlist);
+		settasklist([...newlist]);
+		console.log("donetask", id);
 	};
 
 	const moveTaskDebounce = (dragIndex, hoverIndex) => {
@@ -32,26 +34,35 @@ const Tasklist = ({ list }) => {
 		);
 	};
 	const moveTask = useCallback(debounce(moveTaskDebounce, 100), [tasklist]);
-	console.log(tasklist);
+
+	const deleteCompleted = () => {
+		let newlist = tasklist;
+		let updatedList = newlist.filter((task) => task.isFinished === false);
+		settasklist(updatedList);
+	};
+
 	return (
-		<ul>
-			{list
-				? list.map((task, i) => {
-						return (
-							<Task
-								moveTask={moveTask}
-								index={i}
-								name={task.name}
-								isFinished={task.isFinished}
-								key={task.id}
-								doneHandler={() => doneTask(task.id)}
-								deleteHandler={() => onDelete(task.id)}
-								id={task.id}
-							/>
-						);
-				  })
-				: null}
-		</ul>
+		<div className="taskListwrapper">
+			<ul className="taskList">
+				{list
+					? list.map((task, i) => {
+							return (
+								<Task
+									moveTask={moveTask}
+									index={i}
+									name={task.name}
+									isFinished={task.isFinished}
+									key={task.id}
+									doneHandler={() => doneTask(task.id)}
+									deleteHandler={() => onDelete(task.id)}
+									id={task.id}
+								/>
+							);
+					  })
+					: null}
+			</ul>
+			<BottomNav clearCompleted={deleteCompleted} list={list} />
+		</div>
 	);
 };
 

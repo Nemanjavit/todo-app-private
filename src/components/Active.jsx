@@ -8,7 +8,6 @@ const Active = ({ list }) => {
 
 	return (
 		<div>
-			active
 			<Tasklist list={activeTasks} />
 		</div>
 	);

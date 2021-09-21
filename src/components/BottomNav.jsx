@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Row, Visible } from "react-grid-system";
 
 const BottomNav = ({ list, clearCompleted }) => {
+	let newList = list.filter((task) => task.isFinished === false);
+
 	return (
-		<div className="footer">
+		<div className="">
 			<Visible lg xl xxl>
 				<Row nogutter justify="between" align="center" className="bottomNav">
-					<p className="items__left">{list.length} items left</p>
+					<p className="items__left">{newList.length} items left</p>
 					<div className="bottomNav__links">
 						<NavLink
 							activeClassName="selected"
@@ -42,7 +44,7 @@ const BottomNav = ({ list, clearCompleted }) => {
 			{/* mobile view */}
 			<Visible xs sm md>
 				<Row nogutter justify="between" align="center" className="bottomNav">
-					<p className="items__left">{list.length} items left</p>
+					<p className="items__left">{newList.length} items left</p>
 					<button className="bottomNav__button" onClick={clearCompleted}>
 						Clear Completed
 					</button>

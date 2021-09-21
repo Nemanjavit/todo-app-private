@@ -20,6 +20,12 @@ body {
   overflow-x: hidden;
 }
 
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .header {
   margin-top: 15%;
   font-size: 36px;
@@ -69,6 +75,10 @@ body {
   cursor: pointer;
   background: transparent;
   border: 1px solid #d2d3db;
+}
+
+.taskListwrapper {
+  flex-grow: 1;
 }
 
 .taskList {
@@ -193,6 +203,15 @@ body {
 
 .selected {
   color: #3a7bfd;
+}
+
+.footer {
+  padding: 50px 0;
+}
+
+.footer__text {
+  color: #9394a5;
+  text-align: center;
 }
 
 .dark {

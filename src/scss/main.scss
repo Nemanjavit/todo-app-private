@@ -38,6 +38,12 @@ body {
 	overflow-x: hidden;
 }
 
+.App {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
 .header {
 	margin-top: 15%;
 	font-size: 36px;
@@ -87,6 +93,10 @@ body {
 		background: transparent;
 		border: 1px solid $LightGray;
 	}
+}
+
+.taskListwrapper {
+	flex-grow: 1;
 }
 
 .taskList {
@@ -212,6 +222,15 @@ body {
 }
 .selected {
 	color: $linkBlue;
+}
+
+.footer {
+	padding: 50px 0;
+
+	&__text {
+		color: $DarkGrayishBlue;
+		text-align: center;
+	}
 }
 .dark {
 	background-color: $VeryDarkBlue;

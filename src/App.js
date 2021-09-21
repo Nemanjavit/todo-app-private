@@ -103,6 +103,9 @@ function App() {
 										component={() => <Active list={tasklist} />}
 									/>
 								</Switch>
+								<footer className="footer">
+									<p className="footer__text">Drag and drop to reorder list</p>
+								</footer>
 							</div>
 						</Col>
 					</Row>

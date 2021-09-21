@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Input from "./components/Input";
 import All from "./components/All";
 import "./css/main.css";
@@ -10,7 +10,6 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { Col, Row } from "react-grid-system";
 import { FiSun } from "react-icons/fi";
 import { RiMoonFill } from "react-icons/ri";
-import BottomNav from "./components/BottomNav";
 
 export const TaskContext = createContext();
 
@@ -26,6 +25,7 @@ function App() {
 	const createTask = () => {
 		settask({ ...task, id: (Math.random() * 100).toFixed(0) });
 		settasklist([...tasklist, task]);
+		settask({ ...task, name: "", id: (Math.random() * 100).toFixed(0) });
 	};
 
 	const backGroundImage = () => {
@@ -56,13 +56,13 @@ function App() {
 	window.onresize = backGroundImage;
 
 	const keydown = (e) => {
-		if (e.keyCode == 13) {
+		if (e.keyCode === 13) {
 			createTask();
 		}
 	};
 	return (
 		<TaskContext.Provider value={{ settasklist, tasklist }}>
-			<Router>
+			<Router basename={process.env.PUBLIC_URL}>
 				<DndProvider backend={HTML5Backend}>
 					<Row justify="center">
 						<Col xs={11} md={8} lg={6} xl={6}>

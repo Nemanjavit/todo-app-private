@@ -5,7 +5,7 @@ const Input = ({ changeHandler, value, name, clickHandler, keydown }) => {
 		<div className="input__wrapper">
 			<button className="input__button" onClick={clickHandler}></button>
 			<input
-				autocomplete="off"
+				autoComplete="off"
 				onKeyDown={keydown}
 				className="input"
 				type="text"

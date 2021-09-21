@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Row, Visible, Hidden } from "react-grid-system";
+import { Row, Visible } from "react-grid-system";
 
 const BottomNav = ({ list, clearCompleted }) => {
 	return (
@@ -12,7 +12,7 @@ const BottomNav = ({ list, clearCompleted }) => {
 						<NavLink
 							activeClassName="selected"
 							className="bottomNav__Links__item"
-							to="/completed"
+							to={"/completed"}
 							exact
 						>
 							Completed
@@ -20,7 +20,7 @@ const BottomNav = ({ list, clearCompleted }) => {
 						<NavLink
 							activeClassName="selected"
 							className="bottomNav__Links__item"
-							to="/"
+							to={"/"}
 							exact
 						>
 							All
@@ -28,7 +28,7 @@ const BottomNav = ({ list, clearCompleted }) => {
 						<NavLink
 							activeClassName="selected"
 							className="bottomNav__Links__item"
-							to="/Active"
+							to={"/active"}
 							exact
 						>
 							Active

@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect } from "react";
+import React, { useCallback, useContext } from "react";
 import { TaskContext } from "../App";
 import Task from "./Task";
 import update from "immutability-helper";

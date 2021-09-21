@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { ItemTypes } from "../Utils/itemTypes";
 import { useDrag, useDrop } from "react-dnd";
 import CrossIcon from "../svgs/CrossIcon";
@@ -29,8 +29,6 @@ const Task = ({
 
 			const dragIndex = item.index;
 			const hoverIndex = index;
-			// console.log("dragIndex", dragIndex);
-			// console.log("hoverindex", hoverIndex);
 
 			if (dragIndex === hoverIndex) {
 				return;
@@ -62,7 +60,7 @@ const Task = ({
 			item.index = hoverIndex;
 		},
 	});
-	// console.log(handlerId);
+
 	const [{ isDragging }, drag] = useDrag({
 		type: ItemTypes.CARD,
 		item: () => {

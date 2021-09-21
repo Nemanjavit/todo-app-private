@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import Task from "./Task";
+import React from "react";
 import Tasklist from "./Tasklist";
 
 const All = ({ list }) => {

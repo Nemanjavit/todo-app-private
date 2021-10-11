@@ -1,3 +1,4 @@
+project preview: https://nemanjavit.github.io/todo-app-private/,
 Simple react todo app , with drag and drop to arrange order of tasks. You can chose between light and dark mode.
 
 ![Screenshot 2021-09-21 at 18-39-45 React App](https://user-images.githubusercontent.com/56551956/134211815-141bd443-1776-4c7d-970c-1f9e7e99eca0.png)
